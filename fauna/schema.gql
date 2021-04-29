@@ -1,0 +1,23 @@
+type User {
+  name: String! @unique
+  image: String
+  chats: [Chat] @relation
+}
+
+type Chat {
+  users: [User!]! @relation
+  messages: [Message] @relation
+}
+
+type Message {
+  chat: Chat!
+  content: String!
+  sender: User!
+}
+
+type Query {
+  allUsers: [User!]!
+  allChats: [Chat!]!
+  allMessages: [Message!]!
+  findUserByName(name: String!): User
+}

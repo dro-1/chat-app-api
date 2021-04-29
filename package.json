@@ -1,0 +1,21 @@
+{
+  "name": "chat-app-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "node app.js",
+    "devstart": "nodemon app.js",
+    "fauna": "fgu"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "faunadb": "^4.2.0",
+    "socket.io": "^4.0.1"
+  },
+  "devDependencies": {
+    "fauna-gql-upload": "^2.1.0"
+  }
+}
