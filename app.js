@@ -19,7 +19,13 @@ app.use((req, res, next) => {
 
 app.post("/chat", async (req, res) => {
   const { user1Id, user2Id } = req.body;
-
+  if (!user1Id || !user2Id) {
+    console.log("IDs missing for chat");
+    return res.status(400).send({
+      status: "Failed",
+      message: "Send both IDs to create a chat",
+    });
+  }
   const body = {
     query: `
     mutation CreateChat($user1: ID, $user2: ID){
@@ -71,7 +77,6 @@ app.post("/chat", async (req, res) => {
     });
   } catch (e) {
     console.log(e);
-    console.log("na me");
   }
 });
 
